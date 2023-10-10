@@ -4,17 +4,17 @@ metadata:
   name: vote-ui
 spec:
   replicas: 1
-  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: vote-ui
-template:
-  metadata:
-    labels:
-      app: vote-ui
-  spec:
-    containers:
-    - image: nginx
-      name: vote-ui
-      ports:
-      - containerPort: 80
+  template:
+    metadata:
+      labels:
+        app: vote-ui  # Ensure that these labels match the labels in the selector
+    spec:
+      containers:
+      - name: vote-ui
+        image: nginx  # Replace with your desired container image
+        ports:
+        - containerPort: 80
+
